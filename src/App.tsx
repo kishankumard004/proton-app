@@ -1,17 +1,18 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Dashboard } from '@mui/icons-material';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import  Dashboard  from './components/Dashboard';
 import ReactQueryProvider from './utils/ReactQueryProvider';
+
 function App() {
   return (
-    <div className="App">
-       <ReactQueryProvider>
-      <BrowserRouter>
+    <div>
+      <ReactQueryProvider>
+    <Router>
       <Routes>
-        <Route path='/maps' element={<Dashboard/>}/>
+        <Route path='/ele' element={ <Dashboard/>}/>
       </Routes>
-      </BrowserRouter>
-      </ReactQueryProvider>
+    </Router>
+    </ReactQueryProvider>
     </div>
   );
 }
