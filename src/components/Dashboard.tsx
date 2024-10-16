@@ -1,6 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import ProductsResponse from "../models/ProductResponse";
 import React from "react";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import { CardActions, CardContent, Typography } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import { Box } from "@mui/material";
 const options = {
   method: "GET",
   headers: {
@@ -24,9 +32,25 @@ const Dashboard = () => {
     <div>
       <h1>Hi, Welcome to Blogs</h1>
       <div className="blogs-post">
-        {data?.products.map((product) => (
-          <li key={product.id}>{product.title}</li>
-        ))}
+        <Box sx={{ maxWidth: 1000 }}>
+          {data?.products.map((product) => (
+            <Card sx={{ maxWidth: 345 }} key={product.id}>
+              <CardHeader
+                avatar={
+                  <Avatar
+                    aria-label=""
+                    alt="Default Icon"
+                    src={product.thumbnail}
+                  ></Avatar>
+                }
+                action={<IconButton aria-label=""></IconButton>}
+                title={product.title}
+                subheader={product.category}
+              />
+              <CardContent>{product.description}</CardContent>
+            </Card>
+          ))}
+        </Box>
       </div>
     </div>
   );
