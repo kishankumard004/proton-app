@@ -1,38 +1,49 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import ReactQueryProvider from "./utils/ReactQueryProvider";
 import { ThemeProvider } from "@mui/material/styles";
-import { lightTheme, darkTheme } from "./theme";
-import { useState } from "react";
-import { CssBaseline, FormControlLabel, Switch } from "@mui/material";
+
+import { useMemo, useState } from "react";
+import {
+  createTheme,
+  CssBaseline,
+  FormControlLabel,
+  Switch,
+} from "@mui/material";
+import { lightTheme, darkTheme } from "./theme"; // Import the themes
+import ThemeToggle from "./models/ToggleTheme"; // Import the toggle component
 import { useTheme } from "@emotion/react";
-function App() {
-  const theme = useTheme();
-  const [isDark, setDark] = useState(false);
+import Navbar from "./components/Navbar";
+const App: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(false);
   const toggleTheme = () => {
-    setDark(!isDark);
+    setDarkMode(!darkMode);
   };
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: darkMode ? "dark" : "light",
+        },
+      }),
+    [darkMode]
+  );
   return (
     <div>
       <ReactQueryProvider>
-        <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <CssBaseline />
-          <div style={{ padding: "20px" }}>
-            <FormControlLabel
-              control={<Switch checked={isDark} onChange={toggleTheme} />}
-              label={isDark ? "Dark Mode" : "Light Mode"}
-            />
-          </div>
+          <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
           <Router>
             <Routes>
-              <Route path="/ele" element={<Dashboard />} />
+              <Route path="/home" element={<Dashboard />} />
             </Routes>
           </Router>
         </ThemeProvider>
       </ReactQueryProvider>
     </div>
   );
-}
+};
 
 export default App;
