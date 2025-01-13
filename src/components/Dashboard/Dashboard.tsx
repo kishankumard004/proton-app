@@ -7,6 +7,7 @@ import styles from "./dashboard.module.scss";
 import { Box, Grid2 as Grid } from "@mui/material";
 import { CardContent } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import Header from "../Header/Header";
 const options = {
   method: "GET",
   headers: {
@@ -28,6 +29,7 @@ const Dashboard = () => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <div>
+      <Header />
       <h1>Hi, Welcome to Blogs</h1>
       <div className="blogs-post">
         <Box

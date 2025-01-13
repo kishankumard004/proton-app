@@ -15,6 +15,7 @@ import { lightTheme, darkTheme } from "./theme"; // Import the themes
 import ThemeToggle from "./models/ToggleTheme"; // Import the toggle component
 import { useTheme } from "@emotion/react";
 import Navbar from "./components/Navbar";
+import Header from "./components/Header/Header";
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const toggleTheme = () => {
@@ -38,6 +39,7 @@ const App: React.FC = () => {
           <Router>
             <Routes>
               <Route path="/home" element={<Dashboard />} />
+              <Route path="/header" element={<Header />} />
             </Routes>
           </Router>
         </ThemeProvider>

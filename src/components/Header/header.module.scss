@@ -1,0 +1,50 @@
+.HeaderLayout {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background-color: #103b69;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+.navItems {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.header__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  list-style: none;
+}
+
+.header__nav {
+  margin-top: 10px;
+}
+
+.header__nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.header__title:hover {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  color: #e7d77e;
+}
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
