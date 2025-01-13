@@ -30,7 +30,11 @@ const Dashboard = () => {
     <div>
       <h1>Hi, Welcome to Blogs</h1>
       <div className="blogs-post">
-        <Box alignItems={"center"} justifyContent={"center"} className={styles.layout}>
+        <Box
+          alignItems={"center"}
+          justifyContent={"center"}
+          className={styles.layout}
+        >
           <Grid container spacing={2} justifyContent={"center"}>
             {data?.products.map((product, index) => (
               <Grid
