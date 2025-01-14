@@ -35,7 +35,6 @@ const App: React.FC = () => {
       <ReactQueryProvider>
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <CssBaseline />
-          <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
           <Router>
             <Routes>
               <Route path="/home" element={<Dashboard />} />

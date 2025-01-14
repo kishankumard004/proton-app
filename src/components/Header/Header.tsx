@@ -15,13 +15,21 @@ function Header() {
   return (
     <>
       <Box className={styles.HeaderLayout}>
-        
+        <Box className={styles.menu}>
+          <img
+            src="/filter-icon.svg"
+            alt="Profile"
+            width={"50px"}
+            className={styles.profileImage}
+          />
+        </Box>
+
         <Box className={styles.navItems}>
-          {getHeader()}
+          <ul className={styles.header__list}>{getHeader()}</ul>
           <img
             src="/profile-icon.svg"
             alt="Profile"
-            width={"40px"}
+            width={"50px"}
             className={styles.profileImage}
           />
         </Box>
